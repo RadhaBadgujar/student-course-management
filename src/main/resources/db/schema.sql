@@ -49,8 +49,25 @@ CREATE TABLE role (
 );
 
 -- User-Roles join table
+--CREATE TABLE users_roles (
+--    user_id BIGINT NOT NULL,
+--    role_id BIGINT NOT NULL,
+--    PRIMARY KEY (user_id, role_id)
+--);
+CREATE TABLE users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(150) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    student_id BIGINT,
+    faculty_id BIGINT,
+    FOREIGN KEY (student_id) REFERENCES student(id),
+    FOREIGN KEY (faculty_id) REFERENCES faculty(id)
+);
+
 CREATE TABLE users_roles (
     user_id BIGINT NOT NULL,
     role_id BIGINT NOT NULL,
-    PRIMARY KEY (user_id, role_id)
+    PRIMARY KEY (user_id, role_id),
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (role_id) REFERENCES role(id)
 );

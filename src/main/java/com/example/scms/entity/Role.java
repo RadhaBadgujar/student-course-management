@@ -17,4 +17,5 @@ public class Role {
     private  Long id;
    private  String name;
 }
-//Role (ROLE_ADMIN, ROLE_FACULTY, ROLE_STUDENT)
+
+//roles → what permissions the user has (ROLE_ADMIN, ROLE_FACULTY, ROLE_STUDENT)

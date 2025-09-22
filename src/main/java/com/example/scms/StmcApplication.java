@@ -1,6 +1,7 @@
 package com.example.scms;
 
 import com.example.scms.entity.Student;
+
 import com.example.scms.repository.StudentRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,10 +15,44 @@ public class StmcApplication {
 
     public static void main(String[] args) {
         System.out.println("hello");
-//        ApplicationContext context=SpringApplication.run(SpringDataJpaApplication.class,args);
-//        context=
+
+        // Start Spring Boot application and get the context
+        ApplicationContext context = SpringApplication.run(StmcApplication.class, args);
+
+        // Get the repository bean from context
+        StudentRepo studentRepo = context.getBean(StudentRepo.class);
+
+
+        // Create Student object using Lombok setters
+        Student s1 = new Student();
+        s1.setFirstName("seldina");
+        s1.setLastName("james");
+        s1.setEmail("seldina23@example.com");
+        s1.setPassword("67892");
+        s1.setPhone("1236767880");
+       studentRepo.save(s1);
+        System.out.println("Student Saved : " + s1);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //    @Bean
 //    CommandLineRunner testStud(StudentRepo studentRepo) {
 //        return args -> {
