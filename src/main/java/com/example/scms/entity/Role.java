@@ -18,4 +18,4 @@ public class Role {
    private  String name;
 }
 
-//roles → what permissions the user has (ROLE_ADMIN, ROLE_FACULTY, ROLE_STUDENT)
+//roles → what permissions the user has (ROLE_ADMIN, ROLE_FACULTY, ROE_STUDENT)
