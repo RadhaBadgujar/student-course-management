@@ -1,11 +1,13 @@
-package com.example.scms.Entity;
+package com.example.scms.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
+@Builder
 @Entity
 @Data
 @AllArgsConstructor
@@ -35,19 +37,3 @@ public class Student {
 
 }
 
-
-
-
-
-
-//Student (id, first_name, last_name, email, password, phone, created_at, ...)
-//
-//Faculty (id, name, email, phone, department, ...)
-//
-//Course (id, title, code, description, faculty_id → Many-to-One Faculty)
-//
-//Enrollment (id, student_id, course_id, enrolled_on, status) — join table for Student ↔ Course (Many-to-Many through Enrollment)
-//
-//User / Auth (if you separate auth from domain; or use Student/Faculty as Users)
-//
-//Role (ROLE_ADMIN, ROLE_FACULTY, ROLE_STUDENT)

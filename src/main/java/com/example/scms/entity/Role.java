@@ -1,4 +1,4 @@
-package com.example.scms.Entity;
+package com.example.scms.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
