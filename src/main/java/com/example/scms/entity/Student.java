@@ -14,8 +14,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "student")
+@Builder
 public class
-
 Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,12 +35,27 @@ Student {
 
     private String phone;
 
+
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    // 👇 Ye method automatic trigger hoga save() se pehle
+    @PrePersist
+    protected void onCreate() {
+        this.createdAt = LocalDateTime.now();
+    }
 
 }
+/*⚠️1 OPTION : Lekin jab aap Student.builder() use karte ho, to Lombok ka @Builder default values ko ignore karta hai.
+Matlab createdAt ka default LocalDateTime.now() builder se object banate waqt set nahi hota → isliye null save ho raha hai → response me bhi null.
+👉 Ab jab bhi naya Student save hoga, createdAt DB me automatically set ho jaayega, chahe builder use karo ya constructor.
 
+So USe  @PrePersist  Anno in Stud Entity
+
+2 OPTION
+        .createdAt(LocalDateTime.now())   // ✅ added line
+
+* */
 
 
 
