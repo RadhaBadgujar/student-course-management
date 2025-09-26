@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+//@CrossOrigin(origins = "http://localhost:3000")          //if write wcnfg dnt use
 @RequestMapping("/api/students")
 public class StudentController {
     @Autowired
@@ -19,10 +20,10 @@ public class StudentController {
     @Autowired
     StudentService studentService;
 
-//    @GetMapping("/students")
-//    public List<Student> getAllStud(){
-//        return  studentRepo.findAll();
-//    }
+    @GetMapping
+    public List<Student> getAllStud(){
+        return  studentRepo.findAll();
+    }
 //    @PostMapping("/students")
 //    public Student addStudents(@RequestBody Student s){
 //        return studentRepo.save(s);
@@ -39,8 +40,8 @@ public class StudentController {
 //        return  "Student deleted";
 //    }
     // Create Student API
-    @PostMapping
-    public StudentResponseDto createStudent(@RequestBody StudentRequestDto studentRequestDto) {
-        return studentService.addStudents(studentRequestDto);
-    }
+//    @PostMapping
+//    public StudentResponseDto createStudent(@RequestBody StudentRequestDto studentRequestDto) {
+//        return studentService.addStudents(studentRequestDto);
+//    }
 }

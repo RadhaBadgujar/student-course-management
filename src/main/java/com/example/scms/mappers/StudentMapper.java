@@ -12,8 +12,6 @@ public interface StudentMapper {
 
     // DTO -> Entity
 Student toEntity(StudentResponseDto studentResponseDto);
-
-
-
-
 }
+
+//DTO + Mapper (MapStruct) = data transformation layer (convert DB entity ↔ API response/request).
